@@ -78,8 +78,9 @@ $results = '';
 <body>
   <?php if($results): ?>
     <div class="page-break">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Logotipo_de_la_Corporaci%C3%B3n_Universitaria_Minuto_de_Dios.svg/1200px-Logotipo_de_la_Corporaci%C3%B3n_Universitaria_Minuto_de_Dios.svg.png" alt="Logo Uniminuto" style="margin-button:5px;width:25%" class="">
        <div class="sale-head pull-right">
-           <h1>Reporte de Pedidos</h1>
+           <h1 style="background-color:#138fcb;font-weight:bold;color:white;">Reporte de Pedidos</h1>
            <strong><?php if(isset($start_date)){ echo $start_date;}?> a <?php if(isset($end_date)){echo $end_date;}?> </strong>
        </div>
       <table class="table table-border">
