@@ -1,5 +1,8 @@
 
 <?php
+
+ob_start();
+
 $page_title = 'Reporte de ventas';
 $results = '';
   require_once('includes/load.php');
@@ -108,10 +111,13 @@ $results = '';
     </div>
   <?php
     else:
-        $session->msg("d", "No se encontraron ventas. ");
-        redirect('sales_report.php', false);
      endif;
   ?>
 </body>
 </html>
-<?php if(isset($db)) { $db->db_disconnect(); } ?>
+<?php if(isset($db)) { $db->db_disconnect(); } 
+  $html = ob_get_clean();
+  echo $html;
+
+  require_once 'dompdf/autoload.inc.php';
+?>

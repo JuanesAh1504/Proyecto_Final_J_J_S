@@ -84,7 +84,7 @@ $results = '';
           <input type="hidden" name="end-date" value="<?php if(isset($end_date)){echo $end_date;}?>">
           <button type="button" class="btn btn-danger" onclick="location.href='admin.php'">Página principal</button>
           <button type="button" class="btn btn-success" onclick="javascript:Print();">Imprimir</button>
-          <button type="submit" class="btn btn-warning">Generar PDF</button>
+          <button type="submit" name="submit" class="btn btn-warning">Generar PDF</button>
           <button type="button" class="btn btn-primary" onclick="location.href='sales_report.php'">Filtrar otra fecha</button>
         </form>
       </div>
