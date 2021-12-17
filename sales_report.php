@@ -17,7 +17,7 @@ $page_title = 'Reporte de ventas';
 
       </div>
       <div class="panel-body">
-          <form class="clearfix" method="post" action="sale_report_process.php">
+          <form class="clearfix" method="post" autocomplete="OFF" action="sale_report_process.php">
             <div class="form-group">
               <label class="form-label">Rango de fechas</label>
                 <div class="input-group">

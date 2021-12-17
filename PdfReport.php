@@ -77,15 +77,15 @@ $results = '';
      }
    </style>
 </head>
-<body>
+<body><br>
   <?php if($results): ?>
-    <div class="page-break">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Logotipo_de_la_Corporaci%C3%B3n_Universitaria_Minuto_de_Dios.svg/1200px-Logotipo_de_la_Corporaci%C3%B3n_Universitaria_Minuto_de_Dios.svg.png" alt="Logo Uniminuto" style="margin-button:5px;width:25%" class="">
-       <div class="sale-head pull-right">
+    <div class="page-break" style="width:100%"><br><br><br>
+      <img src="http://<?php echo $_SERVER['HTTP_HOST']?>/Proyecto_Final_J_J_S/uploads/Logotipo_de_la_Corporación_Universitaria_Minuto_de_Dios.png" alt="Logo Uniminuto" style="margin-top:-46px;width:25%" class="">
+       <div class="sale-head pull-right" style="position: relative;margin-top:-50px">
            <h1 style="background-color:#138fcb;font-weight:bold;color:white;">Reporte de Pedidos</h1>
            <strong><?php if(isset($start_date)){ echo $start_date;}?> a <?php if(isset($end_date)){echo $end_date;}?> </strong>
        </div>
-      <table class="table table-border table-hover">
+       <br><br><table class="table table-border table-hover">
         <thead>
           <tr>
               <th>Fecha</th>
@@ -117,7 +117,20 @@ $results = '';
 </html>
 <?php if(isset($db)) { $db->db_disconnect(); } 
   $html = ob_get_clean();
-  echo $html;
+  //echo $html;
 
   require_once 'dompdf/autoload.inc.php';
+  use Dompdf\Dompdf;
+  $dompdf = new Dompdf;
+
+  $options = $dompdf->getOptions();
+  $options->set(array('isRemoteEnabled' => true));
+  $dompdf->setOptions($options);
+
+  $dompdf->loadHtml($html);
+
+  $dompdf->setPaper('letter');
+
+  $dompdf->render();
+  $dompdf->stream("ReporteFechaFiltrada.pdf", array("Attachment" => false));
 ?>
