@@ -210,7 +210,7 @@ function tableExists($table){
    /*--------------------------------------------------------------*/
   function join_product_table(){
      global $db;
-     $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+     $sql  =" SELECT p.id,p.name,p.quantity,p.correo_estudiante,p.name_estudiante,p.media_id,p.date,c.name";
     $sql  .=" AS categorie,m.file_name AS image";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
@@ -261,7 +261,7 @@ function tableExists($table){
   /*--------------------------------------------------------------*/
  function find_recent_product_added($limit){
    global $db;
-   $sql   = " SELECT p.id,p.name,p.sale_price,p.media_id,c.name AS categorie,";
+   $sql   = " SELECT p.id,p.name,p.name_estudiante,p.media_id,c.name AS categorie,";
    $sql  .= "m.file_name AS image FROM products p";
    $sql  .= " LEFT JOIN categories c ON c.id = p.categorie_id";
    $sql  .= " LEFT JOIN media m ON m.id = p.media_id";
@@ -285,7 +285,7 @@ function tableExists($table){
  /*--------------------------------------------------------------*/
  function find_all_sale(){
    global $db;
-   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name";
+   $sql  = "SELECT s.id,s.qty,s.name_estudiante,s.date,p.name";
    $sql .= " FROM sales s";
    $sql .= " LEFT JOIN products p ON s.product_id = p.id";
    $sql .= " ORDER BY s.date DESC";
@@ -296,7 +296,7 @@ function tableExists($table){
  /*--------------------------------------------------------------*/
 function find_recent_sale_added($limit){
   global $db;
-  $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name";
+  $sql  = "SELECT s.id,s.qty,s.name_estudiante,s.date,p.name";
   $sql .= " FROM sales s";
   $sql .= " LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " ORDER BY s.date DESC LIMIT ".$db->escape((int)$limit);
@@ -309,11 +309,11 @@ function find_sale_by_dates($start_date,$end_date){
   global $db;
   $start_date  = date("Y-m-d", strtotime($start_date));
   $end_date    = date("Y-m-d", strtotime($end_date));
-  $sql  = "SELECT s.date, p.name,p.sale_price,p.buy_price,";
+  $sql  = "SELECT s.date, p.name,p.name_estudiante,p.correo_estudiante,";
   $sql .= "COUNT(s.product_id) AS total_records,";
-  $sql .= "SUM(s.qty) AS total_sales,";
-  $sql .= "SUM(p.sale_price * s.qty) AS total_saleing_price,";
-  $sql .= "SUM(p.buy_price * s.qty) AS total_buying_price ";
+  $sql .= "COUNT(s.qty) AS total_sales,";
+  $sql .= "(p.name_estudiante) AS total_name_estudiante,";
+  $sql .= "(p.correo_estudiante ) AS tota_correo_estudiante ";
   $sql .= "FROM sales s ";
   $sql .= "LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " WHERE s.date BETWEEN '{$start_date}' AND '{$end_date}'";
@@ -328,7 +328,7 @@ function  dailySales($year,$month){
   global $db;
   $sql  = "SELECT s.qty,";
   $sql .= " DATE_FORMAT(s.date, '%Y-%m-%e') AS date,p.name,";
-  $sql .= "SUM(p.sale_price * s.qty) AS total_saleing_price";
+  $sql .= "(p.correo_estudiante) AS correo_estudiante";
   $sql .= " FROM sales s";
   $sql .= " LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " WHERE DATE_FORMAT(s.date, '%Y-%m' ) = '{$year}-{$month}'";
@@ -342,7 +342,7 @@ function  monthlySales($year){
   global $db;
   $sql  = "SELECT s.qty,";
   $sql .= " DATE_FORMAT(s.date, '%Y-%m-%e') AS date,p.name,";
-  $sql .= "SUM(p.sale_price * s.qty) AS total_saleing_price";
+  $sql .= "(p.correo_estudiante) AS correo_estudiante";
   $sql .= " FROM sales s";
   $sql .= " LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " WHERE DATE_FORMAT(s.date, '%Y' ) = '{$year}'";

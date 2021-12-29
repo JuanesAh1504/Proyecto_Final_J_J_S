@@ -72,8 +72,8 @@ CREATE TABLE `products` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `quantity` varchar(50) DEFAULT NULL,
-  `buy_price` decimal(25,2) DEFAULT NULL,
-  `sale_price` decimal(25,2) NOT NULL,
+  `name_estudiante` varchar(50) DEFAULT NULL,
+  `correo_estudiante` varchar(50) NOT NULL,
   `categorie_id` int(11) UNSIGNED NOT NULL,
   `media_id` int(11) DEFAULT 0,
   `date` datetime NOT NULL
@@ -83,9 +83,8 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `quantity`, `buy_price`, `sale_price`, `categorie_id`, `media_id`, `date`) VALUES
-(1, 'Filtro de gasolina', '97', '5.00', '10.00', 1, 1, '2017-06-16 07:03:16'),
-(2, 'd', '1', NULL, '0.00', 1, 1, '2021-12-02 15:18:25');
+INSERT INTO `products` (`id`, `name`, `quantity`, `name_estudiante`, `correo_estudiante`, `categorie_id`, `media_id`, `date`) VALUES
+(1, 'Filtro de gasolina', '97', 'juan Diego', 'juandiegovelan2004@gmail.com', 1, 1, '2017-06-16 07:03:16');
 
 -- --------------------------------------------------------
 
@@ -97,7 +96,7 @@ CREATE TABLE `sales` (
   `id` int(11) UNSIGNED NOT NULL,
   `product_id` int(11) UNSIGNED NOT NULL,
   `qty` int(11) NOT NULL,
-  `price` decimal(25,2) NOT NULL,
+  `name_estudiante` varchar(50) NOT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -105,8 +104,8 @@ CREATE TABLE `sales` (
 -- Volcado de datos para la tabla `sales`
 --
 
-INSERT INTO `sales` (`id`, `product_id`, `qty`, `price`, `date`) VALUES
-(1, 1, 3, '30.00', '2021-10-03');
+INSERT INTO `sales` (`id`, `product_id`, `qty`, `name_estudiante`, `date`) VALUES
+(1, 1, 3, 'juan', '2021-10-03');
 
 -- --------------------------------------------------------
 

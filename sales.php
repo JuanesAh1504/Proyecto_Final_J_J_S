@@ -31,6 +31,7 @@ $sales = find_all_sale();
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Nombre del producto </th>
+                <th> Correo Del Estudiante</th>
                 <th class="text-center" style="width: 15%;"> Cantidad</th>
                 <th class="text-center" style="width: 15%;"> Fecha </th>
                 <th class="text-center" style="width: 100px;"> Acciones </th>
@@ -41,6 +42,7 @@ $sales = find_all_sale();
              <tr>
                <td class="text-center"><?php echo count_id();?></td>
                <td><?php echo remove_junk($sale['name']); ?></td>
+               <td><?php echo remove_junk($sale['name_estudiante']); ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo $sale['date']; ?></td>
                <td class="text-center">

@@ -87,6 +87,7 @@ $results = '';
           <tr>
               <th>Fecha</th>
               <th>Descripción</th>
+              <th>Correo Del Estudiante</th>
               <th>Cantidad total</th>
           </tr>
         </thead>
@@ -97,8 +98,9 @@ $results = '';
               <td class="desc">
                 <h6><?php echo remove_junk(ucfirst($result['name']));?></h6>
               </td>
-              <td class="text-right"><?php echo remove_junk($result['total_sales']);?></td>
+              <td class="text-right"><?php echo remove_junk($result['correo_estudiante']);?></td>
           </tr>
+          
         <?php endforeach; ?>
         </tbody>
         <tfoot>

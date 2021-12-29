@@ -31,6 +31,7 @@
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Descripción </th>
+                <th> correo </th>
                 <th class="text-center" style="width: 15%;"> Cantidad pedido</th>
                 <th class="text-center" style="width: 15%;"> Fecha </th>
              </tr>
@@ -40,6 +41,7 @@
              <tr>
                <td class="text-center"><?php echo count_id();?></td>
                <td><?php echo remove_junk($sale['name']); ?></td>
+               <td><?php echo remove_junk($sale['correo_estudiante']); ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo date("d/m/Y", strtotime ($sale['date'])); ?></td>
              </tr>

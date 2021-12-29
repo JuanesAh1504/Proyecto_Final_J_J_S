@@ -2,7 +2,7 @@
   $page_title = 'Pgina principar Admin';
   require_once('includes/load.php');
   // Checkin What level user has permission to view this page
-   page_require_level(1);
+   page_require_level(1,2);
 ?>
 <?php
  $c_categorie     = count_by_id('categories');
@@ -123,6 +123,7 @@
            <td>
             <a href="edit_sale.php?id=<?php echo (int)$recent_sale['id']; ?>">
              <?php echo remove_junk(first_character($recent_sale['name'])); ?>
+             <?php echo remove_junk(first_character($recent_sale['name_estudiante'])); ?>
            </a>
            </td>
            <td><?php echo remove_junk(ucfirst($recent_sale['date'])); ?></td>

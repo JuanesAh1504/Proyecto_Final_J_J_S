@@ -25,7 +25,7 @@
                 <th> Imagen</th>
                 <th> Descripción </th>
                 <th class="text-center" style="width: 10%;"> Categoría </th>
-                <th class="text-center" style="width: 10%;"> Stock </th>
+                <th class="text-center" style="width: 10%;"> Cantidad</th>
                 <th class="text-center" style="width: 10%;"> Agregado </th>
                 <th class="text-center" style="width: 100px;"> Acciones </th>
               </tr>

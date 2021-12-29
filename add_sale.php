@@ -7,19 +7,19 @@
 <?php
 
   if(isset($_POST['add_sale'])){
-    $req_fields = array('s_id','quantity','price','total', 'date' );
+    $req_fields = array('s_id','quantity','name_estudiante','correo_estudiante', 'date' );
     validate_fields($req_fields);
         if(empty($errors)){
           $p_id      = $db->escape((int)$_POST['s_id']);
           $s_qty     = $db->escape((int)$_POST['quantity']);
-          $s_total   = $db->escape($_POST['total']);
+          $s_correo_estudiante   = $db->escape($_POST['correo_estudiante']);
           $date      = $db->escape($_POST['date']);
           $s_date    = make_date();
 
           $sql  = "INSERT INTO sales (";
-          $sql .= " product_id,qty,price,date";
+          $sql .= " product_id,qty,name_estudiante,date";
           $sql .= ") VALUES (";
-          $sql .= "'{$p_id}','{$s_qty}','{$s_total}','{$s_date}'";
+          $sql .= "'{$p_id}','{$s_qty}','{$s_correo_estudiante}','{$s_date}'";
           $sql .= ")";
 
                 if($db->query($sql)){
