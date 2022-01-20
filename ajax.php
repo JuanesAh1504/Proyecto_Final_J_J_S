@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <body>
+
 <?php
   require_once('includes/load.php');
   if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
@@ -48,7 +46,7 @@
           $html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
           $html  .= "</td>";
           $html  .= "<td>";
-          $html  .= "<input type=\"text\" class=\"form-control\" name=\"correo_estudiante\" value=\"{$result['correo_estudiante']}\">";
+          $html  .= "<input type=\"text\" class=\"form-control\"  name=\"correo_estudiante\" value=\"{$result['correo_estudiante']}\">";
           $html  .= "</td>";
           $html  .= "<td>";
           $html  .= "<input type=\"date\" class=\"form-control datePicker\" name=\"date\" data-date data-date-format=\"yyyy-mm-dd\">";
@@ -64,43 +62,8 @@
     }
 
     echo json_encode($html);
+
+    
   }
 
  ?>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-  function EnviarCorreo(){
-	 var suscriptor = $("#txt_suscriptor").val();
-	 var email = $("#txt_email").val();
-	 var contenido = $("#txt_contenido").val();
-	 $.ajax(
-		 {
-			 url:'enviarcorreo.php',
-			 type:'POST',
-			 data:{
-				 s:suscriptor,
-				 e:email,
-				 c:contenido
-
-			 }
-		 }
-	 ).done(function(resp){
-		 if(resp>0){
-			 Swal.fire("Mensaje De Confirmacion","Se envio el mensaje correctamente al correo: "+email+"","success");
-			 $("#txt_suscriptor").val("");
-			 $("#txt_email").val("");
-			 $("#txt_contenido").val("");
-			 $("#txt_suscriptor").focus();
-		 }else{
-			Swal.fire("Mensaje De Error","No se pudo enviar el mensaje ","error");
-		 }
-	 })
-  }
-</script>
-
-</body>
-</html>

@@ -55,7 +55,7 @@ if(!$sale){
     <div class="panel-heading clearfix">
       <strong>
         <span class="glyphicon glyphicon-th"></span>
-        <span>All Sales</span>
+        <span>Editar Pedido</span>
      </strong>
      <div class="pull-right">
        <a href="sales.php" class="btn btn-primary">Mostrar todos los pedidos</a>
