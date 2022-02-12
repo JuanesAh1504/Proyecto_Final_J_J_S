@@ -37,7 +37,7 @@
                 <td>
                     <?php 
                   include("includes/NewConexion.php");
-                    $queryMostrar = "SELECT * FROM media";
+                    $queryMostrar = "SELECT * FROM products as p INNER JOIN media as m";
                     $ResultadoMostrar = $conexion->query($queryMostrar);
 
                     while($row = $ResultadoMostrar->fetch_assoc()){
