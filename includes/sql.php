@@ -285,7 +285,7 @@ function tableExists($table){
  /*--------------------------------------------------------------*/
  function find_all_sale(){
    global $db;
-   $sql  = "SELECT s.id,s.qty,s.name_estudiante,s.date,p.name";
+   $sql  = "SELECT s.id,s.qty,s.name_estudiante,s.correo_estudiante,s.date,p.name";
    $sql .= " FROM sales s";
    $sql .= " LEFT JOIN products p ON s.product_id = p.id";
    $sql .= " ORDER BY s.date DESC";
@@ -296,7 +296,7 @@ function tableExists($table){
  /*--------------------------------------------------------------*/
 function find_recent_sale_added($limit){
   global $db;
-  $sql  = "SELECT s.id,s.qty,s.name_estudiante,s.date,p.name";
+  $sql  = "SELECT s.id,s.qty,s.name_estudiante,s.correo_estudiante,s.date,p.name";
   $sql .= " FROM sales s";
   $sql .= " LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " ORDER BY s.date DESC LIMIT ".$db->escape((int)$limit);
@@ -309,11 +309,11 @@ function find_sale_by_dates($start_date,$end_date){
   global $db;
   $start_date  = date("Y-m-d", strtotime($start_date));
   $end_date    = date("Y-m-d", strtotime($end_date));
-  $sql  = "SELECT s.date, p.name,p.name_estudiante,p.correo_estudiante,";
+  $sql  = "SELECT s.date, p.name,s.name_estudiante,s.correo_estudiante,s.qty,";
   $sql .= "COUNT(s.product_id) AS total_records,";
   $sql .= "COUNT(s.qty) AS total_sales,";
-  $sql .= "(p.name_estudiante) AS total_name_estudiante,";
-  $sql .= "(p.correo_estudiante ) AS tota_correo_estudiante ";
+  $sql .= "(s.name_estudiante) AS total_name_estudiante,";
+  $sql .= "(s.correo_estudiante ) AS tota_correo_estudiante ";
   $sql .= "FROM sales s ";
   $sql .= "LEFT JOIN products p ON s.product_id = p.id";
   $sql .= " WHERE s.date BETWEEN '{$start_date}' AND '{$end_date}'";

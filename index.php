@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://preview.colorlib.com/theme/bootstrap/login-form-20/css/A.style.css.pagespeed.cf.eQk9-CoeFP.css">
 <script>(function(w,d){!function(a,e,t,r,z){a.zarazData=a.zarazData||{},a.zarazData.executed=[],a.zarazData.tracks=[],a.zaraz={deferred:[]};var s=e.getElementsByTagName("title")[0];a.zarazData.c=e.cookie,s&&(a.zarazData.t=e.getElementsByTagName("title")[0].text),a.zarazData.w=a.screen.width,a.zarazData.h=a.screen.height,a.zarazData.j=a.innerHeight,a.zarazData.e=a.innerWidth,a.zarazData.l=a.location.href,a.zarazData.r=e.referrer,a.zarazData.k=a.screen.colorDepth,a.zarazData.n=e.characterSet,a.zarazData.o=(new Date).getTimezoneOffset(),//
 a.dataLayer=a.dataLayer||[],a.zaraz.track=(e,t)=>{for(key in a.zarazData.tracks.push(e),t)a.zarazData["z_"+key]=t[key]},a.zaraz._preSet=[],a.zaraz.set=(e,t,r)=>{a.zarazData["z_"+e]=t,a.zaraz._preSet.push([e,t,r])},a.dataLayer.push({"zaraz.start":(new Date).getTime()}),a.addEventListener("DOMContentLoaded",(()=>{var t=e.getElementsByTagName(r)[0],z=e.createElement(r);z.defer=!0,z.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(a.zarazData))),t.parentNode.insertBefore(z,t)}))}(w,d,0,"script");})(window,document);</script></head>
-<body class="img js-fullheight" style="background-image:url(https://static1.educaedu-colombia.com/adjuntos/12/00/36/corporaci-n-universitaria-minuto-de-dios---uniminuto-sede-bello--003634_large.jpg)">
+<body class="img js-fullheight" style="background-image:url(Img_Login.jfif)">
   <section class="ftco-section">
     <div class="container">
       <div class="row justify-content-center">
@@ -23,6 +23,7 @@ a.dataLayer=a.dataLayer||[],a.zaraz.track=(e,t)=>{for(key in a.zarazData.tracks.
         <div class="col-md-6 col-lg-4">
           <div class="login-wrap p-0">
             <h3 class="mb-4 text-center" style="font-weight:bold">Universidad Minuto de Dios</h3>
+            <?php echo display_msg($msg); ?>
             <form action="auth.php" method="POST" class="signin-form">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Username" name="username" required>

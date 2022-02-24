@@ -22,7 +22,6 @@
             <thead>
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
-                <th> Imagen</th>
                 <th> Descripción </th>
                 <th class="text-center" style="width: 10%;"> Categoría </th>
                 <th class="text-center" style="width: 10%;"> Cantidad</th>
@@ -34,16 +33,6 @@
               <?php foreach ($products as $product):?>
               <tr>
                 <td class="text-center"><?php echo count_id();?></td>
-                <td>
-                    <?php 
-                  include("includes/NewConexion.php");
-                    $queryMostrar = "SELECT * FROM products as p INNER JOIN media as m";
-                    $ResultadoMostrar = $conexion->query($queryMostrar);
-
-                    while($row = $ResultadoMostrar->fetch_assoc()){
-                  ?>
-                  <img src="data:image/jpg;base64,<?php echo base64_encode($row['file_imgMedia']); } ?>" class="img-responsive img-thumbnail" alt="">
-                </td>
                 <td> <?php echo remove_junk($product['name']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['categorie']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>

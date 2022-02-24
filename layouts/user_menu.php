@@ -32,8 +32,6 @@
       </a>
       <ul class="nav submenu">
         <li><a href="sales_report.php">Alquiler por fecha </a></li>
-        <li><a href="monthly_sales.php">Alquiler mensuales</a></li>
-        <li><a href="daily_sales.php">Alquiler diarias</a> </li>
       </ul>
   </li>
 </ul>

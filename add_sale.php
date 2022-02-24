@@ -12,19 +12,20 @@
         if(empty($errors)){
           $p_id      = $db->escape((int)$_POST['s_id']);
           $s_qty     = $db->escape((int)$_POST['quantity']);
-          $s_correo_estudiante   = $db->escape($_POST['correo_estudiante']);
+          $s_nombreEstudiante   = $db->escape($_POST['name_estudiante']);  
+          $s_correo_estudiante   = $db->escape($_POST['correo_estudiante']);  
           $date      = $db->escape($_POST['date']);
           $s_date    = make_date();
 
           $sql  = "INSERT INTO sales (";
-          $sql .= " product_id,qty,name_estudiante,date";
+          $sql .= " product_id,qty,name_estudiante,correo_estudiante,date";
           $sql .= ") VALUES (";
-          $sql .= "'{$p_id}','{$s_qty}','{$s_correo_estudiante}','{$s_date}'";
+          $sql .= "'{$p_id}','{$s_qty}','{$s_nombreEstudiante}','{$s_correo_estudiante}','{$s_date}'";
           $sql .= ")";
 
                 if($db->query($sql)){
                   update_product_qty($s_qty,$p_id);
-                  $session->msg('s',"Venta agregada ");
+                  $session->msg('s',"Alquiler agregado ");
                   redirect('add_sale.php', false);
                 } else {
                   $session->msg('d','Lo siento, registro falló.');

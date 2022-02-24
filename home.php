@@ -11,7 +11,8 @@
  <div class="col-md-12">
     <div class="panel">
       <div class="jumbotron text-center">
-         <h1>Esta es su nueva página de inicio</h1>
+        <h1 style="color:#138fcb;">¡Bienvenido!</h1>
+         <img src="Portada.jfif" alt="" class="img-responsive">
      
       </div>
     </div>
