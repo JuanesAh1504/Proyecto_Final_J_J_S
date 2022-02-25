@@ -133,7 +133,7 @@ $results = '';
 
   $dompdf->loadHtml($html);
 
-  $dompdf->setPaper('letter');
+  $dompdf->setPaper('letter','landscape');
 
   $dompdf->render();
   $dompdf->stream("ReporteFechaFiltrada.pdf", array("Attachment" => false));

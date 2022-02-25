@@ -44,7 +44,7 @@ $sales = find_all_sale();
                <td class="text-center"><?php echo count_id();?></td>
                <td><?php echo remove_junk($sale['name']); ?></td>
                <td><?php echo remove_junk($sale['name_estudiante']); ?></td>
-               <td><?php echo remove_junk($sale['correo_estudiante2']); ?></td>
+               <td><?php echo remove_junk($sale['correo_estudiante']); ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo $sale['date']; ?></td>
                <td class="text-center">
